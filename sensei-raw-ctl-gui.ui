@@ -31,6 +31,7 @@
   <property name='border-width'>10</property>
   <child><object class='GtkNotebook' id='notebook'>
    <property name='show-tabs'>FALSE</property>
+   <property name='show-border'>FALSE</property>
    <child><object class='GtkHBox' id='probing_box'>
     <property name='halign'>GTK_ALIGN_CENTER</property>
     <property name='valign'>GTK_ALIGN_CENTER</property>
