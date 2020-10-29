@@ -1,6 +1,5 @@
-cmake_minimum_required (VERSION 2.8.5)
-project (sensei-raw-ctl C)
-set (project_VERSION "1.0")
+cmake_minimum_required (VERSION 3.0)
+project (sensei-raw-ctl VERSION 1.0 LANGUAGES C)
 
 find_package (PkgConfig REQUIRED)
 pkg_check_modules (dependencies REQUIRED libusb-1.0)
@@ -51,7 +50,7 @@ if (BUILD_GUI)
 	target_link_libraries (${PROJECT_NAME}-gui ${gtk3_LIBRARIES})
 	install (TARGETS ${PROJECT_NAME}-gui
 		DESTINATION ${CMAKE_INSTALL_BINDIR})
-endif (BUILD_GUI)
+endif ()
 
 find_program (HELP2MAN_EXECUTABLE help2man)
 if (NOT HELP2MAN_EXECUTABLE)
@@ -77,18 +76,17 @@ foreach (page ${project_MAN_PAGES})
 endforeach ()
 
 set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "SteelSeries Sensei Raw control utility")
-set (CPACK_PACKAGE_VERSION ${project_VERSION})
 set (CPACK_PACKAGE_VENDOR "Premysl Eric Janouch")
 set (CPACK_PACKAGE_CONTACT "Přemysl Eric Janouch <p@janouch.name>")
 set (CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE")
 
 set (CPACK_GENERATOR "TGZ;ZIP")
 set (CPACK_PACKAGE_FILE_NAME
-	"${PROJECT_NAME}-${project_VERSION}-${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
+	"${PROJECT_NAME}-${PROJECT_VERSION}-${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
 
 set (CPACK_SOURCE_GENERATOR "TGZ;ZIP")
 set (CPACK_SOURCE_IGNORE_FILES "/\\\\.git;/build;/CMakeLists.txt.user")
-set (CPACK_SOURCE_PACKAGE_FILE_NAME "${PROJECT_NAME}-${project_VERSION}")
+set (CPACK_SOURCE_PACKAGE_FILE_NAME "${PROJECT_NAME}-${PROJECT_VERSION}")
 
 set (CPACK_SET_DESTDIR TRUE)
 include (CPack)
