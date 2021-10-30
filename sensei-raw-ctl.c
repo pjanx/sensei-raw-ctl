@@ -73,7 +73,7 @@ find_device (int vendor, int product, int *error)
 	}
 
 out_free:
-	libusb_free_device_list(list, 1);
+	libusb_free_device_list (list, 1);
 out:
 	if (error != NULL && err != 0)
 		*error = err;
@@ -621,4 +621,3 @@ error_1:
 error_0:
 	return status;
 }
-

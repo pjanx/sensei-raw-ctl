@@ -395,4 +395,3 @@ main (int argc, char *argv[])
 	g_object_unref (builder);
 	return 0;
 }
-
