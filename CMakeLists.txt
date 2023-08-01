@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.0...3.27)
 project (sensei-raw-ctl VERSION 1.0 LANGUAGES C)
 
 find_package (PkgConfig REQUIRED)
