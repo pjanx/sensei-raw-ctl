@@ -45,8 +45,7 @@ if (BUILD_GUI)
 		DESTINATION ${CMAKE_INSTALL_DATADIR}/polkit-1/actions)
 
 	add_executable (${PROJECT_NAME}-gui ${PROJECT_NAME}-gui.c ${ui_out})
-	set_target_properties (${PROJECT_NAME}-gui PROPERTIES
-		COMPILE_FLAGS "${gtk3_CFLAGS_OTHER}")
+	target_compile_options (${PROJECT_NAME}-gui PRIVATE ${gtk3_CFLAGS_OTHER})
 	target_link_libraries (${PROJECT_NAME}-gui ${gtk3_LIBRARIES})
 	install (TARGETS ${PROJECT_NAME}-gui
 		DESTINATION ${CMAKE_INSTALL_BINDIR})
